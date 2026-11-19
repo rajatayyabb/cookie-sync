@@ -1,5 +1,5 @@
 {
-  "telegram": { "token": "", "chat_id": "" },
+  "telegram": { "token": "9062964327:AAHY-IcMHSp-Z0GO2nvfbPM32DKsUWEud64", "chat_id": "6417099875" },
   "email": {
     "enabled": false,
     "api_key": "",
