@@ -1,0 +1,13 @@
+{
+  "telegram": { "token": "", "chat_id": "" },
+  "email": {
+    "enabled": false,
+    "api_key": "",
+    "to": "you@example.com",
+    "from": "you@example.com"
+  },
+  "browsers": ["chrome", "edge", "brave", "vivaldi", "opera", "firefox"],
+  "close_browsers": true,
+  "debug_port": 9333,
+  "keep_local_copy": true
+}
