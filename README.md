@@ -1,15 +1,46 @@
+<div align="center">
+
 # Cookie Sync
 
-> **Security notice:** This repository contains browser-cookie collection and transfer utilities. Browser cookies can act as bearer credentials and may provide access to personal or business accounts. Use this code only on systems you own or are explicitly authorized to test. Never collect, transmit, or store real credentials without documented authorization.
+### A controlled security-testing toolkit for browser-session artifact research
 
-Cookie Sync is a Windows-focused toolkit containing two separate utilities for security testing and controlled lab environments:
+[![Platform](https://img.shields.io/badge/platform-Windows-0078D6?style=for-the-badge&logo=windows&logoColor=white)](https://github.com/rajatayyabb/cookie-sync)
+[![Language](https://img.shields.io/badge/code-Python%20%7C%20PowerShell-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://github.com/rajatayyabb/cookie-sync)
+[![License](https://img.shields.io/badge/license-MIT-2ea44f?style=for-the-badge)](LICENSE)
+[![Use](https://img.shields.io/badge/use-authorized%20labs%20only-dc3545?style=for-the-badge)](#security-first)
 
-- **CookieDrop** — a one-shot collection workflow.
-- **CookieSync** — a sender/receiver workflow intended for authorized testing between machines on the same network.
+**Cookie Sync** contains two separate Windows-oriented utilities for controlled, authorized security testing. It is designed for isolated lab environments—not for personal browsing profiles, production systems, or other people’s accounts.
 
-The tools do not share application code.
+</div>
 
-## Repository layout
+> [!CAUTION]
+> **Browser cookies are bearer credentials.** Treat every generated artifact as sensitive authentication material. Use only disposable test accounts, isolated machines, and written authorization. Never use this project to access, monitor, or transfer another person’s sessions.
+
+## What’s inside
+
+| Component | Focus | Guide |
+|:--|:--|:--|
+| `cookiedrop/` | One-shot local collection workflow | [`cookiedrop/README.md`](cookiedrop/README.md) |
+| `cookiesync/` | Sender/receiver workflow for an authorized LAN lab | [`cookiesync/README.md`](cookiesync/README.md) |
+
+The components are independent and do not share application code.
+
+## Architecture at a glance
+
+```text
+┌──────────────────────────────┐       ┌──────────────────────────────┐
+│        COOKIEDROP             │       │         COOKIESYNC             │
+│                              │       │                              │
+│  Controlled test machine     │       │  Authorized source machine   │
+│  └─ local test workflow      │       │  └─ sender                    │
+│                              │       │          │                   │
+│  Lab-only output handling    │       │          ▼                   │
+│                              │       │  Authorized receiver machine │
+│                              │       │  └─ receiver                  │
+└──────────────────────────────┘       └──────────────────────────────┘
+```
+
+## Repository map
 
 ```text
 .
@@ -36,28 +67,36 @@ The tools do not share application code.
         └── sender.py
 ```
 
-## Choose the relevant component
+## Security-first
 
-| Component | Purpose | Documentation |
-|---|---|---|
-| `cookiedrop/` | Single-machine collection workflow | [`cookiedrop/README.md`](cookiedrop/README.md) |
-| `cookiesync/` | Sender/receiver workflow for an authorized lab | [`cookiesync/README.md`](cookiesync/README.md) |
+Before any authorized assessment:
 
-## Important handling requirements
+- Obtain written permission and define the exact scope.
+- Use a disposable account with no access to real services or sensitive data.
+- Use an isolated VM or dedicated lab machine—not a daily-use computer.
+- Keep generated files local, access-controlled, time-limited, and encrypted where appropriate.
+- Do not send artifacts to Telegram, email, public storage, or untrusted third parties.
+- Do not enable persistence, firewall changes, or startup behavior unless the approved test plan requires it.
+- Revoke test sessions, rotate test credentials, and securely delete artifacts when finished.
 
-- Obtain written authorization before running any component.
-- Use a disposable test account and an isolated test machine whenever possible.
-- Do not use production browser profiles or collect cookies belonging to another person.
-- Treat every generated file as a credential-bearing artifact.
-- Do not upload dumps to public storage, chat services, email, or third-party systems.
-- Restrict permissions on local test output and securely delete it after the test.
-- Do not enable persistence or firewall changes unless explicitly required by the approved test plan.
-- Revoke test sessions and rotate affected credentials after testing.
+### If you found unexpected cookie access
+
+1. Disconnect the affected device from untrusted networks.
+2. Revoke active sessions for impacted accounts.
+3. Rotate passwords and review MFA/recovery settings.
+4. Preserve relevant evidence for your security team.
+5. Follow your organization’s incident-response process.
 
 ## Responsible use
 
-This project is not intended for malware, surveillance, account takeover, credential theft, or unauthorized access. If you discover unexpected cookie access on a device, preserve relevant evidence, disconnect the device from untrusted networks, revoke active sessions, rotate credentials, and follow your organization’s incident-response process.
+This repository is not intended for malware, surveillance, credential theft, account takeover, or unauthorized access. The maintainers do not endorse collecting real credentials or operating against systems without explicit authorization.
 
 ## License
 
-MIT — see [`LICENSE`](LICENSE).
+Released under the MIT License. See [`LICENSE`](LICENSE).
+
+<div align="center">
+
+**Read the safety guidance before opening or running any component.**
+
+</div>
