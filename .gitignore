@@ -1,0 +1,9 @@
+config.json
+dumps/
+*.zip
+*.exe
+build.sed
+__pycache__/
+*.pyc
+.venv/
+logs/

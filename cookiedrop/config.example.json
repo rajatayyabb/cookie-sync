@@ -1,0 +1,23 @@
+{
+  "telegram": {
+    "token": "PUT_BOT_TOKEN_HERE",
+    "chat_id": "PUT_CHAT_ID_HERE"
+  },
+  "email": {
+    "enabled": false,
+    "api_key": "",
+    "to": "you@example.com",
+    "from": "you@example.com"
+  },
+  "close_browsers": true,
+  "restore_browser": true,
+  "persist": true,
+  "persist_mode": "task",
+  "interval_minutes": 60,
+  "only_on_change": true,
+  "heartbeat_hours": 24,
+  "always_send": false,
+  "debug_port": 9333,
+  "include_raw_dbs": true,
+  "keep_local_copy": true
+}

@@ -1,0 +1,10 @@
+{
+  "port": 8000,
+  "bind": "0.0.0.0",
+  "token": "",
+  "discovery": true,
+  "discovery_port": 50505,
+  "serve_files": true,
+  "close_browsers": true,
+  "debug_port": 9222
+}
